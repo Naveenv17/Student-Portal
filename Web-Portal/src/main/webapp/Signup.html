@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign up</title>
+<link rel="stylesheet" href="Signup.css">
+</head>
+<body>
+	<form action="Signup" method="post" id="loginForm">
+ <div id="section">
+	 <div id="n1">
+		 <div id="nv1">
+			 <h2>Sign In</h2>
+			 
+			 <div id="np">
+			 <label>First Name</label>  <br>
+			 <input type="text" id="in" name="fs">
+			 </div>
+			 <div id="np">
+			 <label id="lb">Last Name</label> <br>
+			 <input type="text" id="lb" name="ls">
+			 </div>
+		 </div>
+		 <div id="nv2">
+			 <label>DOB</label> <br>
+			 <input type="date" name="date">
+		 </div>
+		 <div id="nv2">
+			 <label>Email</label> <br>
+			 <input type="email" name="email">
+		 </div>
+		 <div id="nv2">
+			 <label>Degree/Education</label> <br>
+			  <input type="text" name="de">
+		 </div>
+		 <div id="nv2">
+			 <label>Password</label> <br>
+			 <input type="password" name="password">
+		 </div>
+		 	 <div id="nv2">
+			 <label>Confirm Password</label> <br>
+			 <input type="password" name="Cp">
+		 </div>
+<button type="submit">Sign Up</button>
+	 </div>
+	 <div id="nav1">
+	 </div>
+	 
+ </div>
+ </form>
+</body>
+</html>
+<script>
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    var fs = document.getElementsByName('fs')[0].value;
+    var ls = document.getElementsByName('ls')[0].value;
+    var email = document.getElementsByName('email')[0].value;
+    var de = document.getElementsByName('de')[0].value;
+
+    if (!email || !fs || !ls || !de) {
+        alert("Invalid Credentials");
+        event.preventDefault();
+    }
+});
+    
+    </script>

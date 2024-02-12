@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>CIE Calculator</title>
+<link rel="stylesheet" href="CIE.css">
+</head>
+<body>
+    <div id="section">
+		<h2>Final CIE Calculator</h2>
+		<div id="inputs">
+			<div id="ip">
+				<label>CIE 1 Marks(out of 25) </label> <br>
+				<input type="number" id="input1" required="required" oninput="clearErrorMessage()">
+			</div>
+				<div id="ip">
+				<label>CIE 2 Marks(out of 25) </label> <br>
+				<input type="number" id="input2" required="required" oninput="clearErrorMessage()">
+			</div>
+	<div id="ip">
+				<label>CIE 3 Marks(out of 25) </label> <br>
+				<input type="number" id="input3" required="required" oninput="clearErrorMessage()">
+			</div>
+	<div id="ip">
+				<label>Assignment Marks(out of 5) </label> <br>
+				<input type="number" id="input4" required="required" oninput="clearErrorMessage()">
+			</div>
+	<div id="ip">
+				<label>Group Activity(out of 5) </label> <br>
+				<input type="number" id="input5" required="required" oninput="clearErrorMessage()">
+			</div>
+        <div id="bt">
+			 <button id="bt1" onclick="calculate()" type="button">Calculate</button>
+		    <button id="bt2" onclick="resetInputs()" type="reset">Reset</button>
+		</div>
+		</div>
+		<p id="error"></p>
+		 <p id="finalCie"></p>
+    <p id="semEligibility"></p>
+	</div>
+</body>
+</html>
+<script>
+	
+  
+    function calculate() {
+        var input1 = parseFloat(document.getElementById('input1').value);
+        var input2 = parseFloat(document.getElementById('input2').value);
+        var input3 = parseFloat(document.getElementById('input3').value);
+        var input4 = parseFloat(document.getElementById('input4').value);
+        var input5 = parseFloat(document.getElementById('input5').value);
+        
+     if (input1 > 25 || input2 > 25 || input3 > 25) {
+      document.getElementById('error').innerHTML = ' *All CIE marks should be below or equal to 25.';
+      return;
+    }
+  
+    if (input4 > 5) {
+      document.getElementById('error').innerHTML = '*Assignment marks should be below or equal to 5.';
+      return;
+    }
+        if (input5 > 5) {
+      document.getElementById('error').innerHTML = '*Group activity marks should be below or equal to 5.';
+      return;
+    }
+
+        
+
+        var finalCie = (Math.max(input1, input2) * 0.8) + input4 + input5;
+        document.getElementById('finalCie').innerText = "Final CIE Marks: " + finalCie.toFixed(2);
+
+        var semEligibility = finalCie >= 20 ? "Eligible for Semester : Yes" : "Not Eligible for Semester : No";
+        document.getElementById('semEligibility').innerText = semEligibility;
+    }
+
+    function resetInputs() {
+        document.getElementById('input1').value = '';
+        document.getElementById('input2').value = '';
+        document.getElementById('input3').value = '';
+        document.getElementById('input4').value = '';
+        document.getElementById('input5').value = '';
+        document.getElementById('finalCie').innerText = "";
+        document.getElementById('error').innerText = "";
+        document.getElementById('semEligibility').innerText = "";
+    }
+
+function clearErrorMessage() {
+    document.getElementById('error').innerHTML = '';
+    document.getElementById('finalCie').innerHTML = '';
+    document.getElementById('semEligibility').innerHTML = '';
+}
+</script>
+
+

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Percenatge Calculator</title>
+<link rel="stylesheet" href="per.css">
+</head>
+<body >
+     <div id="section">
+		 <h2>VTU GPA To Percenatge</h2>
+		 <div id="vtu">
+			 <label>Enter your SGPA or CGPA</label> <br>
+			 <input type="number" id="input1" oninput="clearErrorMessage()">
+		 </div>
+		 <div id="bt">
+			 <button id="bt1" type="submit" onclick="calculate()">Calculate</button>
+			 <a href="Home.html"><button id="bt2">Back</button></a>
+
+		 </div>
+		 <div id="mesg">
+		 <p id="percentage"></p>
+		 <p id="grade"></p>
+		  <P id="error"></P>
+		 </div>
+			 </div>
+</body>
+</html>
+<script>
+ function calculate() {
+        var input1 = parseFloat(document.getElementById('input1').value);
+        
+     if (input1 > 10) {
+      document.getElementById('error').innerHTML = ' *SGPA or CGPA should be below or equal to 10.';
+      return;
+    }
+           document.getElementById('error').innerHTML = '';
+           
+        var per = (Math.max(input1 - 0.75)*10);
+        document.getElementById('percentage').innerText = "Percenatge Obtained: " + per.toFixed(2);
+        
+        if (per > 70) {
+      document.getElementById('grade').innerHTML = 'Grade: First class with Distinction';
+      return;
+    }
+            if (per > 60) {
+      document.getElementById('grade').innerHTML = 'Grade: First class';
+      return;
+    }
+            if (per >50) {
+      document.getElementById('grade').innerHTML = 'Grade: Second class ';
+      return;
+    }
+                if (per >35) {
+      document.getElementById('grade').innerHTML = 'Grade: Pass';
+      return;
+    }
+
+    function clearErrorMessage() {
+    document.getElementById('error').innerHTML = '';
+    document.getElementById('percentage').innerHTML = '';
+    document.getElementById('grade').innerHTML = '';
+}
+    }
+    </script>

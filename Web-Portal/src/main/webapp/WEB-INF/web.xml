@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance-1/" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" version="5.0">
+  <display-name>Web-Portal</display-name>
+  <welcome-file-list>
+    <welcome-file>login.html</welcome-file>
+    <welcome-file>Home.html</welcome-file>
+    <welcome-file>Signup.htm</welcome-file>
+          </welcome-file-list>
+      <servlet>
+  <servlet-name>Login</servlet-name>
+  <servlet-class>Portal.com.Login</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+  
+     <servlet>
+  <servlet-name>Signup</servlet-name>
+  <servlet-class>Portal.com.Signup</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Signup</servlet-name>
+    <url-pattern>/Signup</url-pattern>
+  </servlet-mapping>
+      
+      
+      
+</web-app>

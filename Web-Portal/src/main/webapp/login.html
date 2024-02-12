@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <form action="Login" method="post" id="loginForm">
+        <div id="section">
+            <div id="nav1">
+            </div>
+            <div id="n1">
+                <h2>Login In</h2>
+                <label>Registered Email</label> <br>
+                <input type="email" name="email"> <br>
+                <label>Password</label> <br>
+                <input type="password" name="pass">
+                <button type="submit" id="loginBtn">Login</button>
+                <p id="s">Don't have an Account?<a href="Signup.html">Click here</a></p>
+                
+            </div>
+        </div>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('loginForm').addEventListener('submit', function(event) {
+                var email = document.getElementsByName('email')[0].value;
+                var password = document.getElementsByName('pass')[0].value;
+                if (!email || !password) {
+                    alert("Invalid Credentials");
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

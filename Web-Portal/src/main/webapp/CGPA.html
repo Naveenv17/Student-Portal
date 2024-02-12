@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>CGPA Caluculator</title>
+<link rel="stylesheet" href="CGPA.css">
+</head>
+<body>
+    <div id="section">
+		<h2>VTU CGPA Calculator</h2>
+		<div id="inputs">
+			<div id="ip1">
+				<label>Semester 1</label> <br>
+				<input type="number" id="input1" required="required" oninput="clearErrorMessage()" placeholder="Enter Semester 1 SGPA"> <br>
+				</div>
+				<div id="ip1">
+				<label>Semester 2 </label> <br>
+				<input type="number" id="input2" required="required" oninput="clearErrorMessage()" placeholder="Enter Semester 2 SGPA"> 
+				</div> <br>
+					<div id="ip1">
+				<label>Semester 3 </label> <br>
+				<input type="number" id="input3" required="required" oninput="clearErrorMessage()" placeholder="Enter Semester 3 SGPA"> <br>
+				</div>
+				<div id="ip1">
+				<label>Semester 4 </label> <br>
+				<input type="number" id="input4" required="required" oninput="clearErrorMessage()" placeholder="Enter Semester 4 SGPA">
+				</div> <br>
+	<div id="ip1">
+				<label>Semester 5 </label> <br>
+				<input type="number" id="input5" required="required" oninput="clearErrorMessage()" placeholder="Enter Semester 5 SGPA"> <br>
+				</div>
+				<div id="ip1">
+				<label>Semester 6 </label> <br>
+				<input type="number" id="input6" required="required" oninput="clearErrorMessage()" placeholder="Enter Semester 6 SGPA">
+				</div><br>
+	<div id="ip1">
+				<label>Semester 7 </label> <br>
+				<input type="number" id="input7" required="required" oninput="clearErrorMessage()" placeholder="Enter Semester 7 SGPA"> <br>
+				</div>
+				<div id="ip1">
+				<label>Semester 8 </label> <br>
+				<input type="number" id="input8" required="required" oninput="clearErrorMessage()" placeholder="Enter Semester 8 SGPA">
+				</div><br>		
+				
+        <div id="bt">
+			 <button id="bt1" onclick="calculate()" type="button">Calculate</button>
+		    <button id="bt2" onclick="resetInputs()" type="reset">Reset</button>
+		    <a href="Home.html"><button id="bt3">Back</button></a>
+		</div>
+		</div>
+		<p id="error"></p>
+		 <p id="cgpa"></p>
+    <p id="per"></p>
+	</div>
+</body>
+</html>
+<script>
+    function calculate() {
+    var input1 = parseFloat(document.getElementById('input1').value);
+    var input2 = parseFloat(document.getElementById('input2').value);
+    var input3 = parseFloat(document.getElementById('input3').value);
+    var input4 = parseFloat(document.getElementById('input4').value);
+    var input5 = parseFloat(document.getElementById('input5').value);
+    var input6 = parseFloat(document.getElementById('input6').value);
+    var input7 = parseFloat(document.getElementById('input7').value);
+    var input8 = parseFloat(document.getElementById('input8').value);
+
+    if (input1 > 10 || input2 > 10 || input3 > 10 || input4 > 10 || input5 > 10 || input6 > 10 || input7 > 10 || input8 > 10) {
+        document.getElementById('error').innerText = ' *All SGPA should be below or equal to 10.';
+        return;
+    }
+
+    if (isNaN(input1) || isNaN(input2) || isNaN(input3) || isNaN(input4) || isNaN(input5) || isNaN(input6) || isNaN(input7) || isNaN(input8)) {
+        document.getElementById('error').innerText = ' *All Semester SGPA should be Filled.';
+        return;
+    }
+
+    var cgpa = (input1 + input2 + input3 + input4 + input5 + input6 + input7 + input8) / 8;
+    document.getElementById('cgpa').innerText = "Final CIE Marks: " + cgpa.toFixed(2);
+
+    var per = (cgpa - 0.75) * 10;
+    document.getElementById('per').innerText = "Percentage Obtained: " + per.toFixed(2);
+}
+
+function resetInputs() {
+    document.getElementById('input1').value = '';
+    document.getElementById('input2').value = '';
+    document.getElementById('input3').value = '';
+    document.getElementById('input4').value = '';
+    document.getElementById('input5').value = '';
+    document.getElementById('input6').value = '';
+    document.getElementById('input7').value = '';
+    document.getElementById('input8').value = '';
+    document.getElementById('cgpa').innerText = "";
+    document.getElementById('per').innerText = "";
+    document.getElementById('error').innerText = "";
+}
+ function clearErrorMessage() {
+    document.getElementById('error').innerHTML = '';
+    document.getElementById('cgpa').innerHTML = '';
+    document.getElementById('per').innerHTML = '';
+}
+</script>
